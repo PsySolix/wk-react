@@ -28,6 +28,7 @@ function App() {
   return (
     <div className="App">
       <div className="todos">
+        <h2>{todos.length > 0 ? "Todos" : "Loading..."}</h2>
         {todos.length > 0 &&
           todos.map((todo: ITodo) => {
             return (

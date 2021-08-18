@@ -6,14 +6,13 @@ export interface ITodo {
 }
 
 const DataService = {
-  async request(url: string): Promise<any> {
-    let response = await fetch(url);
+  async request(url: string): Promise<any[]> {
+    let response: Response = await fetch(url);
 
     if (response.ok) {
       return await response.json();
-    } else {
-      throw new Error("Response not ok");
     }
+    return [];
   },
 };
 
