@@ -1,24 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import DataService, { ITodo } from "./services/DataService";
+import Todo from "./components/Todo";
 
 function App() {
+  const [todos, setTodos] = useState<ITodo[]>([]);
+
+  function handleTodoClick(id: number) {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = true;
+        }
+        return todo;
+      })
+    );
+  }
+
+  useEffect(() => {
+    DataService.request("https://jsonplaceholder.typicode.com/todos").then(
+      (data) => {
+        setTodos(data);
+      }
+    );
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="todos">
+        {todos.length > 0 &&
+          todos.map((todo: ITodo) => {
+            return <Todo onTodoClick={handleTodoClick} todo={todo}></Todo>;
+          })}
+      </div>
     </div>
   );
 }

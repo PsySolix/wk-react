@@ -1,0 +1,17 @@
+.todo {
+  background: rgb(199, 243, 184);
+  cursor: pointer;
+  display: flex;
+  margin-bottom: 1rem;
+  padding: 0.5rem 1.5rem;
+  width: 350px;
+}
+
+.todo:hover {
+  opacity: 0.7;
+}
+
+.todo.completed {
+  background: rgb(202, 202, 202);
+  text-decoration: line-through;
+}
