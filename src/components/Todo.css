@@ -14,4 +14,9 @@
 .todo.completed {
   background: rgb(202, 202, 202);
   text-decoration: line-through;
+  cursor: auto;
+}
+
+.todo.completed:hover {
+  opacity: 1;
 }

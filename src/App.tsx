@@ -30,7 +30,13 @@ function App() {
       <div className="todos">
         {todos.length > 0 &&
           todos.map((todo: ITodo) => {
-            return <Todo onTodoClick={handleTodoClick} todo={todo}></Todo>;
+            return (
+              <Todo
+                key={todo.id}
+                onTodoClick={handleTodoClick}
+                todo={todo}
+              ></Todo>
+            );
           })}
       </div>
     </div>
