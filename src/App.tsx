@@ -28,9 +28,16 @@ function App() {
   return (
     <div className="App">
       <div className="todos">
+        <h2>{todos.length > 0 ? "Todos" : "Loading..."}</h2>
         {todos.length > 0 &&
           todos.map((todo: ITodo) => {
-            return <Todo onTodoClick={handleTodoClick} todo={todo}></Todo>;
+            return (
+              <Todo
+                key={todo.id}
+                onTodoClick={handleTodoClick}
+                todo={todo}
+              ></Todo>
+            );
           })}
       </div>
     </div>
