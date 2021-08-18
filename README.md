@@ -1,3 +1,8 @@
+# Prerequisites
+
+[] `npm install`
+[] `npm run start`
+
 # TODO
 
 [] Finish the code in DataService, it should use fetch to get the data from the URL and return the array
