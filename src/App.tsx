@@ -1,44 +1,25 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-import DataService, { ITodo } from "./services/DataService";
-import Todo from "./components/Todo";
+import DataService, { ITodo } from "./services/DataService"; // Complete this service
+import Todo from "./components/Todo"; // Use this TODO component to loop
 
 function App() {
+  // Use state already set, ready to be used!
   const [todos, setTodos] = useState<ITodo[]>([]);
 
   function handleTodoClick(id: number) {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.id === id) {
-          todo.completed = true;
-        }
-        return todo;
-      })
-    );
+    // CODE HERE: Use the ID to set the todos state
   }
 
   useEffect(() => {
-    DataService.request("https://jsonplaceholder.typicode.com/todos").then(
-      (data) => {
-        setTodos(data);
-      }
-    );
+    // CODE HERE: Use the DataService to fetch todos and set the state
   }, []);
 
   return (
     <div className="App">
       <div className="todos">
         <h2>{todos.length > 0 ? "Todos" : "Loading..."}</h2>
-        {todos.length > 0 &&
-          todos.map((todo: ITodo) => {
-            return (
-              <Todo
-                key={todo.id}
-                onTodoClick={handleTodoClick}
-                todo={todo}
-              ></Todo>
-            );
-          })}
+        {/* CODE HERE: Loop over the todos with the <Todo/> */}
       </div>
     </div>
   );

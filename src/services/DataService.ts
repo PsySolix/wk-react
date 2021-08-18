@@ -6,12 +6,9 @@ export interface ITodo {
 }
 
 const DataService = {
-  async request(url: string): Promise<any[]> {
-    let response: Response = await fetch(url);
-
-    if (response.ok) {
-      return await response.json();
-    }
+  async request(url: string): Promise<ITodo[]> {
+    // CODE HERE: use fetch to get the url and return data
+    // tip: let response: Response = await fetch...
     return [];
   },
 };
